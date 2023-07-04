@@ -23,6 +23,10 @@ function Home() {
       <h4>样式处理</h4>
       <div className="color-red text-30px">我是行内样式</div>
       <div className={styles.title}>我是行内样式</div>
+
+      <h4>
+        函数组件又叫做无状态组件(不产生实例)，类组件又叫做有状态组件(有实例)
+      </h4>
     </div>
   )
 }
