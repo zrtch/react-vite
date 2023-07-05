@@ -7,7 +7,7 @@ function Home() {
     { id: 3, name: 'Vue' },
     { id: 5, name: '小程序' },
   ]
-  function handleClick(event) {
+  function handleClick(event: any) {
     alert(event.target.innerHTML)
   }
 

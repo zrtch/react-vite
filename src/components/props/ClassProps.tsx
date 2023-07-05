@@ -1,6 +1,10 @@
 import React from 'react'
+interface ClassPropsProp {
+  myName: string
+  age: number
+}
 
-export default class ClassProps extends React.Component {
+export default class ClassProps extends React.Component<ClassPropsProp> {
   render() {
     const { myName, age } = this.props
     return (
