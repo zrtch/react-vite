@@ -1,4 +1,4 @@
-import styles from './styles.less?inline'
+import { Button } from 'antd'
 
 function Home() {
   const isloading = false
@@ -7,6 +7,9 @@ function Home() {
     { id: 3, name: 'Vue' },
     { id: 5, name: '小程序' },
   ]
+  function handleClick(event) {
+    alert(event.target.innerHTML)
+  }
 
   return (
     <div className="w[87vw] h[87vh]">
@@ -22,11 +25,14 @@ function Home() {
 
       <h4>样式处理</h4>
       <div className="color-red text-30px">我是行内样式</div>
-      <div className={styles.title}>我是行内样式</div>
+      <div>我是行内样式</div>
 
       <h4>
         函数组件又叫做无状态组件(不产生实例)，类组件又叫做有状态组件(有实例)
       </h4>
+
+      <h4>事件处理</h4>
+      <Button onClick={handleClick}>我就是提示文本</Button>
     </div>
   )
 }

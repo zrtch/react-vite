@@ -9,6 +9,7 @@ import {
 import { Layout, Menu, Button, theme } from 'antd'
 import Home from './pages/Home'
 import About from './pages/About'
+import Props from './pages/Props'
 
 const { Header, Sider, Content } = Layout
 
@@ -46,7 +47,7 @@ const App: React.FC = () => {
             {
               key: '3',
               icon: <UploadOutlined />,
-              label: 'nav 3',
+              label: 'Props传值',
             },
           ]}
         />
@@ -74,6 +75,7 @@ const App: React.FC = () => {
         >
           {activeMenuItem === '1' && <Home />}
           {activeMenuItem === '2' && <About />}
+          {activeMenuItem === '3' && <Props />}
         </Content>
       </Layout>
     </Layout>
