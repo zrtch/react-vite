@@ -10,12 +10,13 @@ import { Layout, Menu, Button, theme } from 'antd'
 import Home from './pages/Home'
 import About from './pages/About'
 import Props from './pages/Props'
+import Hooks from './pages/Hooks'
 
 const { Header, Sider, Content } = Layout
 
 const App: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false)
-  const [activeMenuItem, setActiveMenuItem] = useState('1')
+  const [activeMenuItem, setActiveMenuItem] = useState('4')
   const handleMenuClick = (key: string) => {
     setActiveMenuItem(key)
   }
@@ -49,6 +50,11 @@ const App: React.FC = () => {
               icon: <UploadOutlined />,
               label: 'Props传值',
             },
+            {
+              key: '4',
+              icon: <UploadOutlined />,
+              label: 'Hooks',
+            },
           ]}
         />
       </Sider>
@@ -76,6 +82,7 @@ const App: React.FC = () => {
           {activeMenuItem === '1' && <Home />}
           {activeMenuItem === '2' && <About />}
           {activeMenuItem === '3' && <Props />}
+          {activeMenuItem === '4' && <Hooks />}
         </Content>
       </Layout>
     </Layout>

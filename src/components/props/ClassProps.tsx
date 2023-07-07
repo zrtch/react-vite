@@ -9,7 +9,7 @@ export default class ClassProps extends React.Component<ClassPropsProp> {
     const { myName, age } = this.props
     return (
       <h2>
-        类组件 - 个人信息: 姓名: {myName}, 年龄: {age}
+        类组件 - : 姓名: {myName}, 年龄: {age}
       </h2>
     )
   }
