@@ -1,9 +1,9 @@
 function FunProps(props) {
   return (
     <div>
-      <h2>
+      <h3>
         函数组件 - 姓名: {props.name}, 年龄: {props.age}
-      </h2>
+      </h3>
     </div>
   )
 }
