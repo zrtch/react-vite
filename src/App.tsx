@@ -11,12 +11,13 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Props from './pages/Props'
 import Hooks from './pages/Hooks'
+import Uploads from './pages/Uploads'
 
 const { Header, Sider, Content } = Layout
 
 const App: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false)
-  const [activeMenuItem, setActiveMenuItem] = useState('4')
+  const [activeMenuItem, setActiveMenuItem] = useState('5')
   const handleMenuClick = (key: string) => {
     setActiveMenuItem(key)
   }
@@ -55,6 +56,11 @@ const App: React.FC = () => {
               icon: <UploadOutlined />,
               label: 'Hooks',
             },
+            {
+              key: '5',
+              icon: <UploadOutlined />,
+              label: 'Upload',
+            },
           ]}
         />
       </Sider>
@@ -83,6 +89,7 @@ const App: React.FC = () => {
           {activeMenuItem === '2' && <About />}
           {activeMenuItem === '3' && <Props />}
           {activeMenuItem === '4' && <Hooks />}
+          {activeMenuItem === '5' && <Uploads />}
         </Content>
       </Layout>
     </Layout>
