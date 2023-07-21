@@ -12,12 +12,14 @@ import About from './pages/About'
 import Props from './pages/Props'
 import Hooks from './pages/Hooks'
 import Uploads from './pages/Uploads'
+import Hoc from './pages/Hoc'
+import State from './pages/State'
 
 const { Header, Sider, Content } = Layout
 
 const App: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false)
-  const [activeMenuItem, setActiveMenuItem] = useState('5')
+  const [activeMenuItem, setActiveMenuItem] = useState('7')
   const handleMenuClick = (key: string) => {
     setActiveMenuItem(key)
   }
@@ -61,6 +63,16 @@ const App: React.FC = () => {
               icon: <UploadOutlined />,
               label: 'Upload',
             },
+            {
+              key: '6',
+              icon: <UploadOutlined />,
+              label: 'HOC',
+            },
+            {
+              key: '7',
+              icon: <UploadOutlined />,
+              label: '状态管理',
+            },
           ]}
         />
       </Sider>
@@ -90,6 +102,8 @@ const App: React.FC = () => {
           {activeMenuItem === '3' && <Props />}
           {activeMenuItem === '4' && <Hooks />}
           {activeMenuItem === '5' && <Uploads />}
+          {activeMenuItem === '6' && <Hoc />}
+          {activeMenuItem === '7' && <State />}
         </Content>
       </Layout>
     </Layout>
