@@ -1,5 +1,5 @@
 function Hoc() {
-  return <div>hoc</div>
+  return <div></div>
 }
 
 export default Hoc

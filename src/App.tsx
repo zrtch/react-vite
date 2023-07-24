@@ -59,14 +59,14 @@ const App: React.FC = () => {
               label: 'Hooks',
             },
             {
-              key: '5',
-              icon: <UploadOutlined />,
-              label: 'Upload',
-            },
-            {
               key: '6',
               icon: <UploadOutlined />,
               label: 'HOC',
+            },
+            {
+              key: '5',
+              icon: <UploadOutlined />,
+              label: 'Upload',
             },
             {
               key: '7',

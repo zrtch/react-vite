@@ -1,6 +1,8 @@
 import { Upload, Button } from 'antd'
 import { UploadOutlined } from '@ant-design/icons'
-import useBearStore from '../store'
+import { shallow } from 'zustand/shallow'
+
+import useStore from '../store'
 
 const props: UploadProps = {
   name: 'file',
@@ -21,7 +23,13 @@ const props: UploadProps = {
 }
 
 function Uploads() {
-  const bears = useBearStore((state) => state.bears)
+  const bears = useStore((state) => state.bears)
+
+  const [name, age] = useStore((state) => [state.name, state.age], shallow) // 数组选取
+  const handleAdd = () => {
+    useStore.setState({ age: age + 1 })
+  }
+
   return (
     <div className="w[87vw] h[87vh]">
       <Upload {...props}>
@@ -30,6 +38,13 @@ function Uploads() {
 
       <h2>zustand</h2>
       <p>接收的值：{bears}</p>
+      <p>
+        接受的年龄：{age}
+        <Button onClick={handleAdd} className="ml-10px">
+          年龄加1
+        </Button>
+      </p>
+      <p>接受的年龄：{name}</p>
     </div>
   )
 }
