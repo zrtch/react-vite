@@ -14,12 +14,13 @@ import Hooks from './pages/Hooks'
 import Zustand from './pages/Zustand'
 import Hoc from './pages/Hoc'
 import State from './pages/State'
+import Visualization from './pages/Visualization'
 
 const { Header, Sider, Content } = Layout
 
 const App: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false)
-  const [activeMenuItem, setActiveMenuItem] = useState('5')
+  const [activeMenuItem, setActiveMenuItem] = useState('8')
   const handleMenuClick = (key: string) => {
     setActiveMenuItem(key)
   }
@@ -73,6 +74,11 @@ const App: React.FC = () => {
               icon: <UploadOutlined />,
               label: 'Zustand',
             },
+            {
+              key: '8',
+              icon: <UploadOutlined />,
+              label: '可视化',
+            },
           ]}
         />
       </Sider>
@@ -104,6 +110,7 @@ const App: React.FC = () => {
           {activeMenuItem === '5' && <Zustand />}
           {activeMenuItem === '6' && <Hoc />}
           {activeMenuItem === '7' && <State />}
+          {activeMenuItem === '8' && <Visualization />}
         </Content>
       </Layout>
     </Layout>
