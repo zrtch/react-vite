@@ -16,12 +16,13 @@ import Hoc from './pages/Hoc'
 import State from './pages/State'
 import Visualization from './pages/Visualization'
 import Flow from './pages/Flow'
+import Demo from './pages/DEMO'
 
 const { Header, Sider, Content } = Layout
 
 const App: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false)
-  const [activeMenuItem, setActiveMenuItem] = useState('9')
+  const [activeMenuItem, setActiveMenuItem] = useState('10')
   const handleMenuClick = (key: string) => {
     setActiveMenuItem(key)
   }
@@ -85,6 +86,11 @@ const App: React.FC = () => {
               icon: <UploadOutlined />,
               label: '可视化2',
             },
+            {
+              key: '10',
+              icon: <UploadOutlined />,
+              label: 'DEMO合集',
+            },
           ]}
         />
       </Sider>
@@ -118,6 +124,7 @@ const App: React.FC = () => {
           {activeMenuItem === '7' && <State />}
           {activeMenuItem === '8' && <Visualization />}
           {activeMenuItem === '9' && <Flow />}
+          {activeMenuItem === '10' && <Demo />}
         </Content>
       </Layout>
     </Layout>
