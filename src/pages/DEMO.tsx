@@ -27,7 +27,7 @@ const Guang: React.ForwardRefRenderFunction<RefProps> = (props, ref) => {
   })
 
   return (
-    <div>
+    <div className="w[100px]">
       <Input ref={inputRef} />
     </div>
   )
@@ -45,7 +45,7 @@ function Demo() {
   }, [])
 
   return (
-    <div className="w[87vw] h[87vh]">
+    <div>
       <WrapedGuang ref={ref} />
     </div>
   )

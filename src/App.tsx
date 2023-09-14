@@ -12,17 +12,18 @@ import About from './pages/About'
 import Props from './pages/Props'
 import Hooks from './pages/Hooks'
 import Zustand from './pages/Zustand'
-import Hoc from './pages/Hoc'
+import Context from './pages/TestContext'
 import State from './pages/State'
 import Visualization from './pages/Visualization'
 import Flow from './pages/Flow'
 import Demo from './pages/DEMO'
+import Code from './pages/Code'
 
 const { Header, Sider, Content } = Layout
 
 const App: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false)
-  const [activeMenuItem, setActiveMenuItem] = useState('10')
+  const [activeMenuItem, setActiveMenuItem] = useState('11')
   const handleMenuClick = (key: string) => {
     setActiveMenuItem(key)
   }
@@ -64,7 +65,7 @@ const App: React.FC = () => {
             {
               key: '6',
               icon: <UploadOutlined />,
-              label: 'HOC',
+              label: 'Context',
             },
             {
               key: '7',
@@ -90,6 +91,11 @@ const App: React.FC = () => {
               key: '10',
               icon: <UploadOutlined />,
               label: 'DEMO合集',
+            },
+            {
+              key: '11',
+              icon: <UploadOutlined />,
+              label: '优秀代码',
             },
           ]}
         />
@@ -120,11 +126,12 @@ const App: React.FC = () => {
           {activeMenuItem === '3' && <Props />}
           {activeMenuItem === '4' && <Hooks />}
           {activeMenuItem === '5' && <Zustand />}
-          {activeMenuItem === '6' && <Hoc />}
+          {activeMenuItem === '6' && <Context />}
           {activeMenuItem === '7' && <State />}
           {activeMenuItem === '8' && <Visualization />}
           {activeMenuItem === '9' && <Flow />}
           {activeMenuItem === '10' && <Demo />}
+          {activeMenuItem === '11' && <Code />}
         </Content>
       </Layout>
     </Layout>
