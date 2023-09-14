@@ -7,19 +7,20 @@ import React, {
 import { Input } from 'antd'
 
 interface RefProps {
-  aaa: () => void
-  getb: () => void
+  getA: () => void
+  getB: () => void
 }
 
 const Guang: React.ForwardRefRenderFunction<RefProps> = (props, ref) => {
   const inputRef = useRef<HTMLInputElement>(null)
 
+  // 用 useImperativeHanlde 自定义了ref对象
   useImperativeHandle(ref, () => {
     return {
-      aaa() {
+      getA() {
         inputRef.current?.focus()
       },
-      getb() {
+      getB() {
         console.log('this b')
       },
     }
@@ -39,8 +40,8 @@ function Demo() {
 
   useEffect(() => {
     console.log('ref', ref.current)
-    ref.current?.aaa()
-    ref.current?.getb()
+    ref.current?.getA()
+    ref.current?.getB()
   }, [])
 
   return (
