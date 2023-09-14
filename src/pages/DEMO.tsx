@@ -1,29 +1,53 @@
-import { useRef } from 'react'
+import React, {
+  useRef,
+  useEffect,
+  useImperativeHandle,
+  forwardRef,
+} from 'react'
+import { Input } from 'antd'
 
-export default function Demo() {
-  const usernameRef = useRef()
-  const passwordRef = useRef()
+interface RefProps {
+  aaa: () => void
+  getb: () => void
+}
 
-  const onSubmit = (e) => {
-    e.preventDefault()
-    const params = {
-      name: usernameRef?.current?.value,
-      password: passwordRef?.current?.value,
+const Guang: React.ForwardRefRenderFunction<RefProps> = (props, ref) => {
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  useImperativeHandle(ref, () => {
+    return {
+      aaa() {
+        inputRef.current?.focus()
+      },
+      getb() {
+        console.log('this b')
+      },
     }
-    console.log(params)
-  }
+  })
 
   return (
-    <div style={{ width: 800, height: 500 }}>
-      <form onSubmit={onSubmit}>
-        <label htmlFor="name">名字</label>
-        <input type="text" ref={usernameRef} />
-        <br />
-        <label htmlFor="password">密码</label>
-        <input type="text" ref={passwordRef} />
-        <br />
-        <button type="submit">提交</button>
-      </form>
+    <div>
+      <Input ref={inputRef} />
     </div>
   )
 }
+
+const WrapedGuang = forwardRef(Guang)
+
+function Demo() {
+  const ref = useRef<RefProps>(null)
+
+  useEffect(() => {
+    console.log('ref', ref.current)
+    ref.current?.aaa()
+    ref.current?.getb()
+  }, [])
+
+  return (
+    <div className="w[87vw] h[87vh]">
+      <WrapedGuang ref={ref} />
+    </div>
+  )
+}
+
+export default Demo
