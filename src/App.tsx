@@ -18,6 +18,7 @@ import Visualization from './pages/Visualization'
 import Flow from './pages/Flow'
 import Demo from './pages/DEMO'
 import Code from './pages/Code'
+import Memo from './pages/Memo'
 
 const { Header, Sider, Content } = Layout
 
@@ -61,6 +62,11 @@ const App: React.FC = () => {
               key: '4',
               icon: <UploadOutlined />,
               label: 'Hooks',
+            },
+            {
+              key: '12',
+              icon: <UploadOutlined />,
+              label: 'Memo',
             },
             {
               key: '6',
@@ -132,6 +138,7 @@ const App: React.FC = () => {
           {activeMenuItem === '9' && <Flow />}
           {activeMenuItem === '10' && <Demo />}
           {activeMenuItem === '11' && <Code />}
+          {activeMenuItem === '12' && <Memo />}
         </Content>
       </Layout>
     </Layout>
