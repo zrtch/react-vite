@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react'
 import { Button, Input, Form } from 'antd'
 import Callback from './Callback'
+import UseMemo from './UseMemo'
 
 function Hooks() {
   const [count, setCount] = useState(0)
   const [msg, setMsg] = useState('abc')
+  const [items, setItems] = useState([1, 2, 3, 4, 5])
 
   useEffect(() => {
     console.log('effect回调...')
@@ -44,6 +46,12 @@ function Hooks() {
     setCount((prev) => prev + 1)
   }, [])
 
+  // 使用 useMemo 记忆计算结果，避免每次渲染重新计算
+  const filteredItems = useMemo(() => {
+    console.log('重新计算items')
+    return items.filter((item) => item > 2)
+  }, [items])
+
   return (
     <div className="w[87vw] h[87vh]">
       <h2>useState---用来定义状态数据 </h2>
@@ -61,6 +69,9 @@ function Hooks() {
       <h2>useCallback</h2>
       <Callback onIncrement={increment} />
       <p>state.count: {count}</p>
+
+      <h2>useMemo</h2>
+      <UseMemo data={filteredItems} />
 
       <h2>登录页面 - 非受控组件</h2>
       <Form layout="inline" form={form} onFinish={onFinish}>
