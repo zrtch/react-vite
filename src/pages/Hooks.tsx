@@ -1,5 +1,6 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react'
 import { Button, Input, Form } from 'antd'
+import Callback from './Callback'
 
 function Hooks() {
   const [count, setCount] = useState(0)
@@ -38,6 +39,11 @@ function Hooks() {
     console.log(values)
   }
 
+  // 使用 useCallback 记忆函数，避免每次渲染创建新函数引用
+  const increment = useCallback(() => {
+    setCount((prev) => prev + 1)
+  }, [])
+
   return (
     <div className="w[87vw] h[87vh]">
       <h2>useState---用来定义状态数据 </h2>
@@ -51,6 +57,10 @@ function Hooks() {
       <h2>useRef---用于得到组件中的某个DOM元素</h2>
       <Input type="text" ref={inputRef} className="w[300px] m-r[16px]" />
       <Button onClick={handleClick}>提示输入框的值</Button>
+
+      <h2>useCallback</h2>
+      <Callback onIncrement={increment} />
+      <p>state.count: {count}</p>
 
       <h2>登录页面 - 非受控组件</h2>
       <Form layout="inline" form={form} onFinish={onFinish}>
