@@ -19,6 +19,7 @@ import Flow from './pages/Flow'
 import Demo from './pages/DEMO'
 import Code from './pages/Code'
 import Memo from './pages/Memo'
+import List from './pages/List'
 
 const { Header, Sider, Content } = Layout
 
@@ -103,6 +104,11 @@ const App: React.FC = () => {
               icon: <UploadOutlined />,
               label: '优秀代码',
             },
+            {
+              key: '13',
+              icon: <UploadOutlined />,
+              label: '虚拟列表',
+            },
           ]}
         />
       </Sider>
@@ -139,6 +145,7 @@ const App: React.FC = () => {
           {activeMenuItem === '10' && <Demo />}
           {activeMenuItem === '11' && <Code />}
           {activeMenuItem === '12' && <Memo />}
+          {activeMenuItem === '13' && <List />}
         </Content>
       </Layout>
     </Layout>
