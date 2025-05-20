@@ -20,6 +20,7 @@ import Demo from './pages/DEMO'
 import Code from './pages/Code'
 import Memo from './pages/Memo'
 import List from './pages/List'
+import RefDemo from './pages/RefDemo'
 
 const { Header, Sider, Content } = Layout
 
@@ -109,6 +110,11 @@ const App: React.FC = () => {
               icon: <UploadOutlined />,
               label: '虚拟列表',
             },
+            {
+              key: '14',
+              icon: <UploadOutlined />,
+              label: 'useRef示例',
+            },
           ]}
         />
       </Sider>
@@ -146,6 +152,7 @@ const App: React.FC = () => {
           {activeMenuItem === '11' && <Code />}
           {activeMenuItem === '12' && <Memo />}
           {activeMenuItem === '13' && <List />}
+          {activeMenuItem === '14' && <RefDemo />}
         </Content>
       </Layout>
     </Layout>
