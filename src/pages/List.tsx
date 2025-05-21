@@ -1,11 +1,8 @@
 import { Column, Table } from 'react-virtualized'
-import 'react-virtualized/styles.css' // 添加样式引入
 
 // 自定义表头渲染器
 const headerRenderer = ({ label }: { label: string }) => (
-  <div className="header-cell" style={{ fontWeight: 'bold', padding: '5px' }}>
-    {label}
-  </div>
+  <div className="header-cell">{label}</div>
 )
 
 const List = () => {
@@ -16,30 +13,28 @@ const List = () => {
   }))
 
   return (
-    <div>
-      <Table
-        width={1000}
-        height={300}
-        headerHeight={30} // 增加表头高度
-        rowHeight={30}
-        rowCount={list.length}
-        rowGetter={({ index }) => list[index]}
-      >
-        <Column
-          headerRenderer={headerRenderer}
-          dataKey="name"
-          label="名称"
-          width={500}
-        />
+    <Table
+      width={1000}
+      height={300}
+      headerHeight={20}
+      rowHeight={30}
+      rowCount={list.length}
+      rowGetter={({ index }) => list[index]}
+    >
+      <Column
+        headerRenderer={headerRenderer}
+        dataKey="name"
+        label="名称"
+        width={500} // 直接设置固定宽度
+      />
 
-        <Column
-          headerRenderer={headerRenderer}
-          dataKey="description"
-          label="描述"
-          width={500}
-        />
-      </Table>
-    </div>
+      <Column
+        headerRenderer={headerRenderer}
+        dataKey="description"
+        label="描述"
+        width={500} // 直接设置固定宽度
+      />
+    </Table>
   )
 }
 

@@ -21,6 +21,7 @@ import Code from './pages/Code'
 import Memo from './pages/Memo'
 import List from './pages/List'
 import RefDemo from './pages/RefDemo'
+import EffectCompare from './pages/EffectCompare'
 
 const { Header, Sider, Content } = Layout
 
@@ -115,6 +116,11 @@ const App: React.FC = () => {
               icon: <UploadOutlined />,
               label: 'useRef示例',
             },
+            {
+              key: '15',
+              icon: <UploadOutlined />,
+              label: 'Effect对比',
+            },
           ]}
         />
       </Sider>
@@ -153,6 +159,7 @@ const App: React.FC = () => {
           {activeMenuItem === '12' && <Memo />}
           {activeMenuItem === '13' && <List />}
           {activeMenuItem === '14' && <RefDemo />}
+          {activeMenuItem === '15' && <EffectCompare />}
         </Content>
       </Layout>
     </Layout>
