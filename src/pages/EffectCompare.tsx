@@ -60,7 +60,7 @@ const EffectCompare: React.FC = () => {
   }, [layoutCount])
 
   return (
-    <div className="w[87vw] h[87vh] overflow-auto">
+    <div className="w[87vw] h[87vh] overflow-auto"> 
       <Title level={2}>useEffect 与 useLayoutEffect 对比</Title>
 
       <Space direction="vertical" size="large" style={{ width: '100%' }}>
