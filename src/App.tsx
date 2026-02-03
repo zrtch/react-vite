@@ -22,6 +22,8 @@ import Memo from './pages/Memo'
 import List from './pages/List'
 import RefDemo from './pages/RefDemo'
 import EffectCompare from './pages/EffectCompare'
+import SSE from './pages/SSE'
+import KafkaSync from './pages/KafkaSync'
 
 const { Header, Sider, Content } = Layout
 
@@ -121,6 +123,16 @@ const App: React.FC = () => {
               icon: <UploadOutlined />,
               label: 'Effect对比',
             },
+            {
+              key: '16',
+              icon: <UploadOutlined />,
+              label: 'SSE',
+            },
+            {
+              key: '17',
+              icon: <UploadOutlined />,
+              label: 'Kafka同步',
+            },
           ]}
         />
       </Sider>
@@ -160,6 +172,8 @@ const App: React.FC = () => {
           {activeMenuItem === '13' && <List />}
           {activeMenuItem === '14' && <RefDemo />}
           {activeMenuItem === '15' && <EffectCompare />}
+          {activeMenuItem === '16' && <SSE />}
+          {activeMenuItem === '17' && <KafkaSync />}
         </Content>
       </Layout>
     </Layout>
