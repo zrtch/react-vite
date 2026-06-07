@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
+  ThunderboltOutlined,
   UploadOutlined,
   UserOutlined,
   VideoCameraOutlined,
+  ExperimentOutlined,
 } from '@ant-design/icons'
 import { Layout, Menu, Button, theme } from 'antd'
 import Home from './pages/Home'
@@ -24,12 +26,18 @@ import RefDemo from './pages/RefDemo'
 import EffectCompare from './pages/EffectCompare'
 import SSE from './pages/SSE'
 import KafkaSync from './pages/KafkaSync'
+import TypeWriter from './pages/TypeWriter'
+import ChatTypeWriter from './pages/ChatTypeWriter'
+import CanvasEditor from './pages/CanvasEditor'
+import AIBatteryManagement from './pages/AIBatteryManagement'
+import SewageTreatment from './pages/SewageTreatment'
+import Gomoku from './pages/Gomoku'
 
 const { Header, Sider, Content } = Layout
 
 const App: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false)
-  const [activeMenuItem, setActiveMenuItem] = useState('11')
+  const [activeMenuItem, setActiveMenuItem] = useState('20')
   const handleMenuClick = (key: string) => {
     setActiveMenuItem(key)
   }
@@ -133,6 +141,36 @@ const App: React.FC = () => {
               icon: <UploadOutlined />,
               label: 'Kafka同步',
             },
+            {
+              key: '18',
+              icon: <UploadOutlined />,
+              label: '打字效果',
+            },
+            {
+              key: '19',
+              icon: <UploadOutlined />,
+              label: '聊天打字机',
+            },
+            {
+              key: '20',
+              icon: <UploadOutlined />,
+              label: '画布编辑器',
+            },
+            {
+              key: '21',
+              icon: <ThunderboltOutlined />,
+              label: 'AI电池管理',
+            },
+            {
+              key: '22',
+              icon: <ExperimentOutlined />,
+              label: '污水处理系统',
+            },
+            {
+              key: '23',
+              icon: <ExperimentOutlined />,
+              label: '五子棋',
+            },
           ]}
         />
       </Sider>
@@ -174,6 +212,12 @@ const App: React.FC = () => {
           {activeMenuItem === '15' && <EffectCompare />}
           {activeMenuItem === '16' && <SSE />}
           {activeMenuItem === '17' && <KafkaSync />}
+          {activeMenuItem === '18' && <TypeWriter />}
+          {activeMenuItem === '19' && <ChatTypeWriter />}
+          {activeMenuItem === '20' && <CanvasEditor />}
+          {activeMenuItem === '21' && <AIBatteryManagement />}
+          {activeMenuItem === '22' && <SewageTreatment />}
+          {activeMenuItem === '23' && <Gomoku />}
         </Content>
       </Layout>
     </Layout>

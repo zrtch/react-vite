@@ -11,8 +11,28 @@ function Home() {
     alert(event.target.innerHTML)
   }
 
+  const p1 = Promise.resolve(1)
+  const p2 = Promise.reject('出错了')
+  const p3 = new Promise((resolve) => setTimeout(resolve, 1000, 3))
+  Promise.allSettled([p1, p2, p3])
+    .then((results) => console.log(results))
+    .catch((err) => console.error(err))
+
   return (
     <div className="w[87vw] h[87vh]">
+      {/* <div className="w-full h-full flex justify-center items-center">
+        <div className="w-50 h-50 bg-red"></div>
+      </div> */}
+      {/* <div className="w-full h-full grid place-items-center">
+        <div className="w-50 h-50 bg-red"></div>
+      </div> */}
+      {/* <div className="w-full h-full relative">
+        <div className="w-50 h-50 bg-red absolute inset-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+      </div> */}
+      {/* <div className="w-full h-full relative">
+        <div className="w-50 h-50 bg-red absolute top-0 left-0 right-0 bottom-0 m-auto"></div>
+      </div> */}
+
       <h4>条件判断</h4>
       <div>{isloading ? <h2>正在加载中2...</h2> : <div>加载完成啦2!</div>}</div>
 
